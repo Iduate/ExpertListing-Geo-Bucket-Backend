@@ -12,7 +12,18 @@
 pip install -r requirements.txt
 ```
 
-### 2. Database Setup
+### 2. Activate Virtual Environment
+On Windows:
+```
+.venv\Scripts\Activate.ps1
+```
+
+Or if using Command Prompt:
+```
+.venv\Scripts\activate.bat
+```
+
+### 3. Database Setup
 - Create a PostgreSQL database (e.g., `expertlisting`)
 - Enable PostGIS extension:
 ```
@@ -27,17 +38,17 @@ alembic upgrade head
 psql -U <user> -d expertlisting -f seed.sql
 ```
 
-### 3. Run the API
+### 4. Run the API
 ```
 uvicorn src.main:app --reload
 ```
 
-### 4. API Endpoints
+### 5. API Endpoints
 - `POST /api/properties` - Create property
 - `GET /api/properties/search?location=...` - Search properties
 - `GET /api/geo-buckets/stats` - Bucket stats
 
-### 5. Run Tests
+### 6. Run Tests
 ```
 pytest
 ```
